@@ -1,11 +1,14 @@
+import sys
 from openrazer.client import DeviceManager
 from openrazer.client import constants as razer_constants
-import json
 
 
 def run():
+    brightness = float(sys.argv[1]) if len(sys.argv) > 1 else 10
+    print("👀 brightness {}".format(brightness))
     # create a devicemanager. this is used to get specific devices
     device_manager = DeviceManager()
+    device_manager.sync_effects = False
     print("Found {} Razer devices".format(len(device_manager.devices)))
     for idx, device in enumerate(device_manager.devices):
         print("👉 {} - {}".format(device.name, device.type))
@@ -13,14 +16,12 @@ def run():
             device.fx.misc.logo.active
             device.fx.misc.logo.active = True
             device.fx.misc.logo.active = 1
-            # device.fx.spectrum()
-            device.fx.static(0, 255, 0)
-            device.brightness = 15
+            device.fx.spectrum()
+            device.brightness = brightness
             print("{} done 🔥".format(device.name))
         elif device.name == 'Razer BlackWidow Chroma Tournament Edition':
-            # device.fx.spectrum()
-            device.fx.static(0, 255, 0)
-            device.brightness = 50
+            device.fx.spectrum()
+            device.brightness = brightness
             print("{} done 🔥".format(device.name))
         elif device.name == 'Razer Basilisk X HyperSpeed':
             print(idx)
