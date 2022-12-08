@@ -8,6 +8,6 @@ add to `.zshrc`:
 
 ```zsh
 function openrazer() {
-  python3 Projects/openrazer/set.py $1;
+  ~/Projects/openrazer/set.py $1;
 }
 ```
