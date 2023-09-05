@@ -13,11 +13,11 @@ def random_color():
 
 def run():
     argument = sys.argv[1] if len(sys.argv) > 1 else 'L'
-    if argument == 'H':
+    if argument == 'h':
         brightness = 100
-    elif argument == 'M':
+    elif argument == 'm':
         brightness = 50
-    elif argument == 'L':
+    elif argument == 'l':
         brightness = 10
     print("👀 brightness {}".format(brightness))
     # create a devicemanager. this is used to get specific devices
