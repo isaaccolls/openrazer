@@ -14,7 +14,7 @@ def random_color():
 def run():
     argument = sys.argv[1] if len(sys.argv) > 1 else 'L'
     if argument == 'h':
-        brightness = 100
+        brightness = 90
     elif argument == 'm':
         brightness = 50
     elif argument == 'l':
