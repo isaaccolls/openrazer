@@ -63,12 +63,16 @@ def run():
                         device.fx.advanced.matrix[row, col] = (0, 255, 0)
                         if col == 1 or col == 10 or col == 11 or col == 12 or col == 15:
                             device.fx.advanced.matrix[row, col] = (0, 0, 255)
+                        elif col == 13:
+                            device.fx.advanced.matrix[row, col] = (255, 0, 255)
                     elif row == 5:
                         device.fx.advanced.matrix[row, col] = (0, 255, 0)
                         if col <= 11 or col == 15:
                             device.fx.advanced.matrix[row, col] = (0, 0, 255)
-                    else:
-                        device.fx.advanced.matrix[row, col] = (255, 255, 255)
+                        else:
+                            device.fx.advanced.matrix[row, col] = (255, 0, 255)
+                    # else:
+                    #     device.fx.advanced.matrix[row, col] = (255, 255, 255)
             device.fx.advanced.draw()
             # by color
             # device.fx.static(0, 255, 0)
