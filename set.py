@@ -14,7 +14,7 @@ def random_color():
 def run():
     argument = sys.argv[1] if len(sys.argv) > 1 else 'L'
     if argument == 'h':
-        brightness = 90
+        brightness = 85
     elif argument == 'm':
         brightness = 50
     elif argument == 'l':
@@ -27,10 +27,11 @@ def run():
     for idx, device in enumerate(device_manager.devices):
         print("👉 {} - {} ({})".format(device.name,
               device.type, bool(device.fx.advanced)))
+        effects = [attr for attr in dir(
+            device.fx) if not attr.startswith('__')]
+        print(effects)
         if device.name == 'Razer Blade 15 (2018)':
-            device.fx.misc.logo.active
             device.fx.misc.logo.active = True
-            device.fx.misc.logo.active = 1
             # by color
             rows, cols = device.fx.advanced.rows, device.fx.advanced.cols
             for row in range(rows):
@@ -76,6 +77,7 @@ def run():
             device.fx.advanced.draw()
             # by color
             # device.fx.static(0, 255, 0)
+            # device.fx.wave(0x02)
             device.brightness = brightness
             print("{} done 🔥".format(device.name))
         elif device.name == 'Razer BlackWidow Chroma Tournament Edition':
