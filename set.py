@@ -19,6 +19,8 @@ def run():
         brightness = 50
     elif argument == 'l':
         brightness = 10
+    else:
+        brightness = 50
     print("👀 brightness {}".format(brightness))
     # create a devicemanager. this is used to get specific devices
     device_manager = DeviceManager()
@@ -32,7 +34,7 @@ def run():
         print(effects)
         if device.name == 'Razer Blade 15 (2018)':
             device.fx.misc.logo.active = True
-            # by color
+            # # by color
             rows, cols = device.fx.advanced.rows, device.fx.advanced.cols
             for row in range(rows):
                 for col in range(cols):
@@ -75,9 +77,8 @@ def run():
                     # else:
                     #     device.fx.advanced.matrix[row, col] = (255, 255, 255)
             device.fx.advanced.draw()
-            # by color
-            # device.fx.static(0, 255, 0)
-            # device.fx.wave(0x02)
+            # # by color
+            # device.fx.static(162, 25, 255)
             device.brightness = brightness
             print("{} done 🔥".format(device.name))
         elif device.name == 'Razer BlackWidow Chroma Tournament Edition':
